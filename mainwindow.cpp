@@ -183,6 +183,7 @@ void MainWindow::createMenus()
     optionMenu->addAction(clearScreenAct);
 
     addColorSubmenu();
+    addPatternSubmenu();
 
     helpMenu = new QMenu(tr("&Help"), this);
     helpMenu->addAction(aboutAct);
@@ -209,6 +210,22 @@ void MainWindow::addColorSubmenu()
 
     colorAction = model.getColorAction("Mult-color");
     colorSubMenu->addAction(colorAction);
+}
+
+void MainWindow::addPatternSubmenu()
+{
+    QMenu *             patternSubMenu  = optionMenu->addMenu("Patterns");
+    ColorDataModel &    model           = ColorDataModel::getInstance();
+    QVector<QString>    patterns        = model.getSupportedPatterns();
+
+    QAction *           patternAction   = nullptr;
+
+    foreach (QString patterStr, patterns)
+    {
+        patternAction = model.getPatternAction(patterStr);
+        patternSubMenu->addAction(patternAction);
+    }
+
 }
 //! [16]
 

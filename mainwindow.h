@@ -76,6 +76,7 @@ private:
     void createActions();
     void createMenus();
     void addColorSubmenu();
+    void addPatternSubmenu();
     bool maybeSave();
     bool saveFile(const QByteArray &fileFormat);
 

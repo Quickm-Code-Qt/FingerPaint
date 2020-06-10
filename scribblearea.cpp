@@ -217,8 +217,13 @@ bool ScribbleArea::event(QEvent *event)
                     }
 
                     painter.setPen(Qt::NoPen);
-                    painter.setBrush(ColorDataModel::getInstance().getNextColor());
+
+                    QColor brushColor(ColorDataModel::getInstance().getNextColor());
+                    Qt::BrushStyle brushStyle(ColorDataModel::getInstance().getPattern());
+                    QBrush brush(brushColor, brushStyle);
+                    painter.setBrush(brush);
 //                    painter.setBrush(myPenColors.at(touchPoint.id() % myPenColors.count()));
+
                     painter.drawEllipse(touchPoint.pos(), diams.width() / 2, diams.height() / 2);
 //                    painter.end();
 

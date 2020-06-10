@@ -6,12 +6,14 @@ HEADERS       = mainwindow.h \
                 color_constants.h \
                 colorcommand.h \
                 colordatamodel.h \
+                patterncommand.h \
                 scribblearea.h \
                 singletonbase.h
 SOURCES       = main.cpp \
                 colorcommand.cpp \
                 colordatamodel.cpp \
                 mainwindow.cpp \
+                patterncommand.cpp \
                 scribblearea.cpp \
                 singletonbase.cpp
 
